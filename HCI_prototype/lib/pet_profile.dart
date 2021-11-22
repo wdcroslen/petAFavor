@@ -152,52 +152,16 @@ class _PetProfilePageState extends State<PetProfilePage> {
               Text('Notes', style: petProfileGenderStyle()),
               const SizedBox(height: 10,),
               TextFormField(decoration: textFieldDecoration(),),
-              SizedBox(height: 25,),
+              SizedBox(height: 20,),
               Text('Sitted By', style: petProfileGenderStyle()),
 
-              Container(
-                  padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                    child:
-                      Card(
-                          elevation: 2,
-                          color:Colors.green,
-                          child: ListTile(
-                            leading: Container(width: 45,
-                              height: 115,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      width: 2,
-                                      color: Theme
-                                          .of(context)
-                                          .scaffoldBackgroundColor),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        spreadRadius: 2,
-                                        blurRadius: 10,
-                                        color: Colors.black.withOpacity(0.1),
-                                        offset: Offset(0, 10))
-                                  ],
-                                  shape: BoxShape.circle,
-                                  image: const DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: NetworkImage(
-                                        "https://upload.wikimedia.org/wikipedia/commons/5/5b/My_new_puppy%2C_Link.jpg",
-                                      ))),
-                          ),
+              profileCard("https://upload.wikimedia.org/wikipedia/commons/4/42/The_ROCK.jpg",
+                'The Rock', 'Wed. Oct. 20, 2021'),
 
-                            title: Row(children: [Text("Shy Porter"), SizedBox(width:25), Text("Wed. Oct. 20, 2021")]),
-                            //subtitle: Text("hello"),
-                            // onTap: () {
-                            //   // openRequest(request[index])
-                            //},
-                          )
-                      ),
-
-
-
-                    ),
-
-
+              SizedBox(height: 20,),
+              Text('Walked By', style: petProfileGenderStyle()),
+              profileCard("https://upload.wikimedia.org/wikipedia/commons/1/14/Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg",
+              'Ryan Reynolds', 'Fri. Oct, 2021'),
 
             ],
           ),
