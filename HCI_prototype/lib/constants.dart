@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pet_profile.dart';
 
 TextStyle petProfileNameStyle(){
   return const TextStyle(color: Colors.green, fontSize: 35, fontWeight: FontWeight.w500);
@@ -18,6 +19,10 @@ TextStyle personProfileNameStyle(){
 
 TextStyle bold(){
   return const TextStyle(fontWeight: FontWeight.bold);
+}
+
+TextStyle boldBig(){
+  return const TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 }
 
 ButtonStyle requestButton(){
@@ -49,7 +54,7 @@ Container profileCard(String imageURL, String name, String date){
     child:
     Card(
         elevation: 2,
-        color:Colors.green,
+        color:Colors.green[200],
         child: ListTile(
           leading: Container(width: 45,
             height: 115,
@@ -87,6 +92,59 @@ Container profileCard(String imageURL, String name, String date){
           // onTap: () {
           //   // openRequest(request[index])
           //},
+        )
+    ),
+  );
+}
+
+
+
+Container favorCard(BuildContext context, String imageURL, Color? color, String name, String date, String hour){
+  return Container(
+    padding: EdgeInsets.fromLTRB(2, 0, 5, 0),
+    child:
+    Card(
+        elevation: 2,
+        color: color,
+        child: ListTile(
+          leading: Container(width: 45,
+            height: 115,
+            decoration: BoxDecoration(
+                border: Border.all(
+                    width: 2,
+                    color: Colors.white),
+                boxShadow: [
+                  BoxShadow(
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      color: Colors.black.withOpacity(0.1),
+                      offset: Offset(0, 10))
+                ],
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    alignment: FractionalOffset.fromOffsetAndSize(
+                      const Offset(
+                        1.0,
+                        -50,
+                      ),
+                      const Size(
+                        100,
+                        100,
+                      ),
+                    ),
+                    image: NetworkImage(
+                        imageURL
+                    ))),
+          ),
+
+          title: Row(children: [
+            Text(name, style: bold()), SizedBox(width:15), Text(date), SizedBox(width:15), Text(hour)
+          ]),
+          //subtitle: Text("hello"),
+          onTap: () {
+            Navigator.push(context,  MaterialPageRoute(builder: (context) => PetProfile()));
+          },
         )
     ),
   );
