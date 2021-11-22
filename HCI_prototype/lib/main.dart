@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'favors_needed_page.dart';
 import 'objects.dart';
-import 'edit_profile.dart';
 import 'pet_profile.dart';
 
 List<Request> favors = [Request("2:30 PM"), Request("2:50 PM")];
