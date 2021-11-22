@@ -155,12 +155,12 @@ class _PetProfilePageState extends State<PetProfilePage> {
               SizedBox(height: 20,),
               Text('Sitted By', style: petProfileGenderStyle()),
 
-              profileCard("https://upload.wikimedia.org/wikipedia/commons/4/42/The_ROCK.jpg",
+              profileCard(context,"https://upload.wikimedia.org/wikipedia/commons/4/42/The_ROCK.jpg",
                 'The Rock', 'Wed. Oct. 20, 2021'),
 
               SizedBox(height: 20,),
               Text('Walked By', style: petProfileGenderStyle()),
-              profileCard("https://upload.wikimedia.org/wikipedia/commons/1/14/Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg",
+              profileCard(context,"https://upload.wikimedia.org/wikipedia/commons/1/14/Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg",
               'Ryan Reynolds', 'Fri. Oct, 2021'),
 
             ],

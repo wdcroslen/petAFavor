@@ -34,7 +34,7 @@ class _FavorsNeededState extends  State<FavorsNeeded>  {
           //   ),
           //   Icon(Icons.more_vert),
           // ],
-          backgroundColor: Colors.red[200],
+          backgroundColor: Colors.blue[200],
         ),
         body:
         Column(children: [
@@ -44,7 +44,7 @@ class _FavorsNeededState extends  State<FavorsNeeded>  {
                   child:
                   Text('Needs Sitting', style: petProfileGenderStyle()),
                   // Text("House Sitting",
-                  //     style: TextStyle(backgroundColor: Colors.redAccent, color: Colors.black, fontSize: 20))
+                  //     style: TextStyle(backgroundColor: Colors.blueAccent, color: Colors.black, fontSize: 20))
 
               ),
 
@@ -73,7 +73,7 @@ class _FavorsNeededState extends  State<FavorsNeeded>  {
     //               secondaryActions: const [
     //                 IconSlideAction(
     //                     caption: "Delete",
-    //                     color: Colors.red,
+    //                     color: Colors.blue,
     //                     icon: Icons.delete,
     //                     //onTap: () => _deleteNote(context, model, note)
     //                 )
@@ -103,20 +103,20 @@ class _FavorsNeededState extends  State<FavorsNeeded>  {
     // ),
     //     ),
     //       ),
-        Container(color: Colors.red[300], child: Row(children: [SizedBox(width:85),
+        Container(color: Colors.blue[300], child: Row(children: [SizedBox(width:85),
           Text("Name", style: boldBig()), SizedBox(width:55), Text("Date",style: boldBig()), SizedBox(width:75), Text("Hour",style: boldBig())
         ]),
         ),
           Container(height: 200,child:
           ListView(children: [
             favorCard(context,'https://upload.wikimedia.org/wikipedia/commons/5/5b/My_new_puppy%2C_Link.jpg',
-                Colors.red[100], "Puppy 1", "Mon. Oct. 25, 2021", "2:30 PM"),
+                Colors.blue[100], "Puppy 1", "Mon. Oct. 25, 2021", "2:30 PM"),
             favorCard(context,'https://upload.wikimedia.org/wikipedia/commons/5/5b/My_new_puppy%2C_Link.jpg',
-                Colors.red[150], "Puppy 2", "Tue. Oct. 26, 2021", "2:50 PM"),
+                Colors.blue[150], "Puppy 2", "Tue. Oct. 26, 2021", "2:50 PM"),
             favorCard(context,'https://upload.wikimedia.org/wikipedia/commons/5/5b/My_new_puppy%2C_Link.jpg',
-                Colors.red[100], "Puppy 3", "Thur. Oct. 28, 2021", "8:30 AM"),
+                Colors.blue[100], "Puppy 3", "Thur. Oct. 28, 2021", "8:30 AM"),
             favorCard(context,'https://upload.wikimedia.org/wikipedia/commons/5/5b/My_new_puppy%2C_Link.jpg',
-                Colors.red[150], "Puppy 4", "Thur. Oct. 28, 2021", "8:30 AM"),
+                Colors.blue[150], "Puppy 4", "Thur. Oct. 28, 2021", "8:30 AM"),
           ],
           ),
           ),
@@ -125,20 +125,20 @@ class _FavorsNeededState extends  State<FavorsNeeded>  {
           Divider(color: Colors.black, thickness: 7,),
           Text('Needs Walking', style: petProfileGenderStyle()),
 
-          Container(color: Colors.red[300], child: Row(children: [SizedBox(width:85),
+          Container(color: Colors.blue[300], child: Row(children: [SizedBox(width:85),
             Text("Name", style: boldBig()), SizedBox(width:55), Text("Date",style: boldBig()), SizedBox(width:75), Text("Hour",style: boldBig())
           ]),
           ),
           Container(height: 200,child:
                 ListView(children: [
             favorCard(context,'https://upload.wikimedia.org/wikipedia/commons/5/5b/My_new_puppy%2C_Link.jpg',
-                Colors.red[100], "Puppy 1", "Mon. Oct. 25, 2021", "2:30 PM"),
+                Colors.blue[100], "Puppy 1", "Mon. Oct. 25, 2021", "2:30 PM"),
             favorCard(context,'https://upload.wikimedia.org/wikipedia/commons/5/5b/My_new_puppy%2C_Link.jpg',
-                Colors.red[150], "Puppy 2", "Tue. Oct. 26, 2021", "2:50 PM"),
+                Colors.blue[150], "Puppy 2", "Tue. Oct. 26, 2021", "2:50 PM"),
             favorCard(context,'https://upload.wikimedia.org/wikipedia/commons/5/5b/My_new_puppy%2C_Link.jpg',
-                Colors.red[100], "Puppy 3", "Thur. Oct. 28, 2021", "8:30 AM"),
+                Colors.blue[100], "Puppy 3", "Thur. Oct. 28, 2021", "8:30 AM"),
             favorCard(context,'https://upload.wikimedia.org/wikipedia/commons/5/5b/My_new_puppy%2C_Link.jpg',
-                Colors.red[150], "Puppy 4", "Thur. Oct. 28, 2021", "8:30 AM"),
+                Colors.blue[150], "Puppy 4", "Thur. Oct. 28, 2021", "8:30 AM"),
                 ],
                 ),
           ),
@@ -154,7 +154,7 @@ class _FavorsNeededState extends  State<FavorsNeeded>  {
     //   children: [
     //     Container(
     //       height: 40.0,
-    //       color: Colors.red[200]//Theme.of(context).backgroundColor,
+    //       color: Colors.blue[200]//Theme.of(context).backgroundColor,
     //     ),
     //      Padding(
     //       padding: const EdgeInsets.only(bottom: 12.0),

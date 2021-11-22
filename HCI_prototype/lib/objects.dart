@@ -14,3 +14,11 @@ class Pet {
   int age = 5;
   String gender = ' Female';
 }
+
+class Person {
+  String name = 'Kumail Nanjiani';
+  String address =  '1445 N Stanton, 79902';
+  int age = 27;
+  String gender = ' Male';
+}
+

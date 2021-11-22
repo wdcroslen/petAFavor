@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pet_profile.dart';
+import 'human_profile_page.dart';
 
 TextStyle petProfileNameStyle(){
   return const TextStyle(color: Colors.green, fontSize: 35, fontWeight: FontWeight.w500);
@@ -14,7 +15,7 @@ TextStyle petProfileGenderStyle(){
 }
 
 TextStyle personProfileNameStyle(){
-  return const TextStyle(color: Colors.red, fontSize: 35, fontWeight: FontWeight.w500);
+  return const TextStyle(color: Colors.red, fontSize: 30, fontWeight: FontWeight.w500);
 }
 
 TextStyle bold(){
@@ -48,7 +49,49 @@ InputDecoration textFieldDecoration(){
   );
 }
 
-Container profileCard(String imageURL, String name, String date){
+Container petProfileCard(BuildContext context, Color? color, String imageURL, String name, String date, int stars){
+  return Container(
+    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+    child:
+    Card(
+        elevation: 2,
+        color:color,
+        child: ListTile(
+          leading: Container(width: 35,
+            height: 115,
+            decoration: BoxDecoration(
+                border: Border.all(
+                    width: 2,
+                    color: Colors.white),
+                boxShadow: [
+                  BoxShadow(
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      color: Colors.black.withOpacity(0.1),
+                      offset: Offset(0, 10))
+                ],
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        imageURL
+                    ))),
+          ),
+
+          title: Row(children: [
+            Text(name, style: bold()), SizedBox(width:6), Text(date), SizedBox(width:2),
+          Row(children: _numStars(stars),),
+          ]),
+          //subtitle: Text("hello"),
+          onTap: () {
+            Navigator.push(context,  MaterialPageRoute(builder: (context) => PetProfile()));
+          },
+        )
+    ),
+  );
+}
+
+Container profileCard(BuildContext context, String imageURL, String name, String date){
   return Container(
     padding: EdgeInsets.fromLTRB(2, 0, 5, 0),
     child:
@@ -89,9 +132,9 @@ Container profileCard(String imageURL, String name, String date){
 
           title: Row(children: [Text(name, style: bold()), SizedBox(width:25), Text(date)]),
           //subtitle: Text("hello"),
-          // onTap: () {
-          //   // openRequest(request[index])
-          //},
+          onTap: () {
+            Navigator.push(context,  MaterialPageRoute(builder: (context) => PersonProfile()));
+          },
         )
     ),
   );
@@ -148,4 +191,9 @@ Container favorCard(BuildContext context, String imageURL, Color? color, String 
         )
     ),
   );
+}
+
+
+List<Icon> _numStars(int count) {
+  return List.generate(count, (i) => const Icon(Icons.star)).toList(); // replace * with your rupee or use Icon instead
 }
