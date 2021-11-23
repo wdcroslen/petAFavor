@@ -154,6 +154,8 @@ class _PersonProfilePageState extends State<PersonProfilePage> {
                   'The Rock', 'Oct. 20, 2021',3),
 
               SizedBox(height: 20,),
+
+              Text('Reviews', style: petProfileGenderStyle()),
             ],
           ),
         ),

@@ -197,3 +197,45 @@ Container favorCard(BuildContext context, String imageURL, Color? color, String 
 List<Icon> _numStars(int count) {
   return List.generate(count, (i) => const Icon(Icons.star)).toList(); // replace * with your rupee or use Icon instead
 }
+
+
+Container petProfileCardNoMethod(Color? color, String imageURL, String name, String date, int stars){
+  return Container(
+    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+    child:
+    Card(
+        elevation: 2,
+        color:color,
+        child: ListTile(
+          leading: Container(width: 35,
+            height: 115,
+            decoration: BoxDecoration(
+                border: Border.all(
+                    width: 2,
+                    color: Colors.white),
+                boxShadow: [
+                  BoxShadow(
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      color: Colors.black.withOpacity(0.1),
+                      offset: Offset(0, 10))
+                ],
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        imageURL
+                    ))),
+          ),
+
+          title: Row(children: [
+            Text(name, style: bold()), SizedBox(width:6), Text(date), SizedBox(width:2),
+            Row(children: _numStars(stars),),
+          ]),
+          //subtitle: Text("hello"),
+          onTap: () {
+          },
+        )
+    ),
+  );
+}

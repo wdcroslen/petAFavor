@@ -50,59 +50,6 @@ class _FavorsNeededState extends  State<FavorsNeeded>  {
 
           ),
 
-
-    //       Expanded(child:
-    //         SizedBox(height: 200,
-    //         child:
-    //       ListView.builder(
-    //         itemCount: favors.length,
-    //         itemBuilder: (BuildContext context, int index) {
-    //          Request request = favors[index];
-    //          Color color = Colors.blueGrey;
-    //          if (index%2==0) {
-    //            color = Colors.lightBlue;
-    //          } else {
-    //            color = Colors.blueGrey;
-    //          }
-    //
-    //       return Container(
-    //           padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-    //           child: Slidable(
-    //               actionPane: SlidableDrawerActionPane(),
-    //               actionExtentRatio: .25,
-    //               secondaryActions: const [
-    //                 IconSlideAction(
-    //                     caption: "Delete",
-    //                     color: Colors.blue,
-    //                     icon: Icons.delete,
-    //                     //onTap: () => _deleteNote(context, model, note)
-    //                 )
-    //               ],
-    //           child:
-    //
-    //           Card(
-    //                   elevation: 2,
-    //                   color: color,
-    //                   child: ListTile(
-    //                     leading: const CircleAvatar(
-    //                       backgroundColor : Colors.black,
-    //                       foregroundColor : Colors.white,
-    //                     //FileImage(avatarFile) : null,
-    //                       child :Text('I'),
-    //                     ),
-    //                   title: Text("Request $index"),
-    //                   subtitle: Text(request.time),
-    //                   // onTap: () {
-    //                   //   // openRequest(request[index])
-    //                   //},
-    //                   )
-    //           ),
-    //           )
-    //       );
-    //     }
-    // ),
-    //     ),
-    //       ),
         Container(color: Colors.blue[300], child: Row(children: [SizedBox(width:85),
           Text("Name", style: boldBig()), SizedBox(width:55), Text("Date",style: boldBig()), SizedBox(width:75), Text("Hour",style: boldBig())
         ]),

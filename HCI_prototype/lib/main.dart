@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'favors_needed_page.dart';
 import 'objects.dart';
 import 'pet_profile.dart';
+import 'request_page.dart';
+
+const List<Choice> choices = <Choice>[
+  Choice(title: 'My Profile',
+      icon: Icon(Icons.person, color: Colors.black)),
+  Choice(title: 'My Dogs', icon: Icon(Icons.pets, color: Colors.black)),
+];
 
 List<Request> favors = [Request("2:30 PM"), Request("2:50 PM")];
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Prototype',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: MyHomePage(),
     );
@@ -29,7 +36,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
+  Choice _selectedChoice = choices[0];
+  void _select(Choice choice) {
+    setState(() {
+      _selectedChoice = choice;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
@@ -37,7 +49,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.menu),
+        leading:
+        PopupMenuButton<Choice>(
+          onSelected: _select,
+          itemBuilder: (BuildContext context) {
+            return choices.map((Choice choice) {
+              return PopupMenuItem<Choice>(
+                  value: choice,
+                  child: Row(children: [Text(choice.title), SizedBox(width:20),choice.icon]),
+              );
+            }).toList();
+          },
+        ),
+        // IconButton(
+        //   icon: const Icon(
+        //   Icons.menu,
+        //   color: Colors.black,
+        //       ),
+        // onPressed: () {},),
         title:  Text('Home')//new Center(child: new Text('Home Prototype', textAlign: TextAlign.center)),
       ),
       body: Center(
@@ -50,21 +79,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: deviceWidth-50, // <-- match_parent
                 child: ElevatedButton.icon(
                   icon: const Icon(
-                    Icons.home,
+                    Icons.search,
                     color: Colors.white,
                     size:80.0,
                   ),
                   label: const Text(
-                    'House Sitting',
+                    'Favors',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   onPressed: (){
-                    // fillRequestList();
                     Navigator.push(context,  MaterialPageRoute(builder: (context) => FavorsNeeded()));
-
                     },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.brown,
+                    primary: Colors.blue[300],
                   ),
                 ),
             ),
@@ -74,19 +101,19 @@ class _MyHomePageState extends State<MyHomePage> {
               width: deviceWidth-50, // <-- match_parent
               child: ElevatedButton.icon(
                 icon: const Icon(
-                  Icons.pets,
+                  Icons.nature_people,
                   color: Colors.white,
                   size:80.0,
                 ),
                 label: const Text(
-                  'Run/Walk',
+                  'Request',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 onPressed: (){
-                  Navigator.push(context,  MaterialPageRoute(builder: (context) => PetProfile()));
+                  Navigator.push(context,  MaterialPageRoute(builder: (context) => RequestPage()));
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green,
+                  primary: Colors.green[300],
                 ),
               )
             ),
@@ -96,44 +123,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-
-
-
-
-
-class HouseSitting extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Page title'),
-        actions: [
-          Icon(Icons.favorite),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Icon(Icons.search),
-          ),
-          Icon(Icons.more_vert),
-        ],
-        backgroundColor: Colors.purple,
-      ),
-        body: Text("HouseSitting Page")
-      );
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 class Walking extends StatelessWidget {
@@ -157,7 +146,7 @@ class Walking extends StatelessWidget {
             children: <Widget>[
               TextFormField(
                 key: _usernameFormFieldKey,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Username',
                   hintText: 'enter username',
                 ),
@@ -168,7 +157,7 @@ class Walking extends StatelessWidget {
               TextFormField(
                 key: _passwordFormFieldKey,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Password',
                 ),
                 validator: (value) =>
@@ -206,3 +195,80 @@ class Walking extends StatelessWidget {
 }
 
 
+class ChoiceCard extends StatelessWidget {
+  final Choice choice;
+
+  ChoiceCard({required this.choice});
+
+  @override
+  Widget build(BuildContext context) {
+    var textStyle = Theme.of(context).textTheme.subtitle1;
+    return Padding(
+      padding: const EdgeInsets.all(0.0),
+      child: Card(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(
+                choice.icon.icon,
+                size: 128.0,
+              ),
+              Text(choice.title, style: textStyle)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Choice {
+  const Choice({required this.title, required this.icon});
+
+  final String title;
+  final Icon icon;
+  // final IconData icon;
+}
+
+class MyApp2 extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp2> {
+  Choice _selectedChoice = choices[0];
+
+  @override
+  Widget build(BuildContext context) {
+    var title = "AppBar demo";
+    return MaterialApp(
+      title: title,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+          actions: <Widget>[
+            PopupMenuButton<Choice>(
+              onSelected: _select,
+              itemBuilder: (BuildContext context) {
+                return choices.map((Choice choice) {
+                  return PopupMenuItem<Choice>(
+                      value: choice,
+                      child: Text(choice.title)
+                  );
+                }).toList();
+              },
+            ),
+          ],
+        ),
+        body: ChoiceCard(choice: _selectedChoice,),
+      ),
+    );
+  }
+
+  void _select(Choice choice) {
+    setState(() {
+      _selectedChoice = choice;
+    });
+  }
+}
